@@ -4,11 +4,11 @@ license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://op
 [![PyPI
 version](https://badge.fury.io/py/googletrans.svg)](https://pypi.org/project/vtrans/)
 
-vtrans is a **self-updating**, **free**, and **unlimited** language
+**vtrans** is a **self-updating**, **free**, and **unlimited** language
 translating library. It works with the
 [googletrans](https://pypi.org/project/googletrans2/) library.
 
-\*Wait, but this is not like googletrans.
+Wait, but this is not like googletrans.
 googletrans can\'t update its languages, so you can only
 use limited languages. However, **vtrans** is different. It
 updates itself every time you import it.
@@ -237,9 +237,7 @@ associated with Google.
 
 Googletrans is licensed under the MIT License. The terms are as follows:
 
-::
-
-:   Copyright 2023 S.Vigneswaran
+Copyright 2023 S.Vigneswaran
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the
