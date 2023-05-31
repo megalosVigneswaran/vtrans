@@ -20,7 +20,7 @@ setup(
   name='vtrans',
   version='3.0.0',
   description='This is a self-updating translator for free and unlimited usage with upto 130 langauges',
-  long_description=open('README.rst',"r",encoding="utf-8").read(),
+  long_description=open('README.md',"r",encoding="utf-8").read(),
   long_description_content_type='text/markdown',
   url='https://github.com/megalosVigneswaran/vtrans/',  
   author='S.Vigneswaran',
