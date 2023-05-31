@@ -1,26 +1,28 @@
+
 vtrans
 =====
+|GitHub license| |PyPI version|
 
 vtrans is a **self-updating**, **free**, and **unlimited** language translating library. It works with the `googletrans <https://pypi.org/project/googletrans2/>`__ library.
 
-Wait, but this is not like `googletrans`. `googletrans` can't update its languages, so you can only use limited languages. However, `vtrans` is different. It updates itself every time you import it.
+*Wait, but this is not like `googletrans`. `googletrans` can't update its languages, so you can only use limited languages. However, `vtrans` is different. It updates itself every time you import it.
 
 Features
---------
+=========
 
 Different from googletrans
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------
 
 -  update it self
 -  You can use exatra langauges like sansrit,bhojpuri ect.......  .
--  but googletrans have not tis languages
--  When the google udate their google translator it automatically update it self
+-  but googletrans have not this languages
+-  When the google update their google translator it automatically update it self
 -  you can use extra languages compare to other translating library
 -  what langauges are avaiable in google translator,you can use all the languages by this library
 
 
 Similarities with googletrans
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 - Fast and reliable: It uses the same servers as `translate.google.com`.
 - Auto language detection
@@ -29,12 +31,12 @@ Similarities with googletrans
 - Similar structure
 
 How it works
-------------
+============
 
 `vtrans` is essentially a language-updatable version of `googletrans`. It modifies the `LANGUAGES` dictionary in `constants.py` of `googletrans` by scraping the table from `google translator supported langauges <https://cloud.google.com/translate/docs/languages>`__. It retrieves the values from the table and creates a new dictionary, which replaces the existing `LANGUAGES` dictionary.
 
 Installing
-----------
+==========
 
 To install the `vtrans` package, use the following command:
 
@@ -42,8 +44,9 @@ To install the `vtrans` package, use the following command:
 
     $ pip install vtrans==3.0.0
 
+
 How to use this library (simple)
--------------------------------
+================================
 
 .. code-block:: python
 
@@ -52,11 +55,23 @@ How to use this library (simple)
     translator = Translator()
     output = translator.translate("This library can translate languages", "ta")
 
-Find available languages in `vtrans`
-------------------------------------
+Find available languages
+========================
+
+To find what languages are available in vtrans:
+
+.. code-block:: python
+
+    import vtrans
+
+    langs = vtrans.LANGUAGES
+    print(langs)  # It will give you a dictionary
+
+    # To find the number of available languages
+    print(len(langs))
 
 First importing of `vtrans`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+============================
 
 If you import this library for the first time, it will take some time to complete the configurations. It changes the `LANGUAGES` variable in `constants.py` of `googletrans` to match the current version of Google Translator. The first import will display the following:
 
@@ -73,7 +88,7 @@ If you import this library for the first time, it will take some time to complet
 Once you have imported `vtrans` for the first time, you do not need to use auto-updating. Auto-updating slows down the library, as it searches for updates whenever you import `vtrans`. Enabling or disabling auto-updating is based on your needs and choice.
 
 How to disable auto-update
-~~~~~~~~~~~~~~~~~~~~~~~~~
+===========================
 
 If you want to disable auto-updating:
 
@@ -86,7 +101,7 @@ If you want to disable auto-updating:
 Now `vtrans` will not update whenever you import it.
 
 How to update manually
-~~~~~~~~~~~~~~~~~~~~~
+======================
 
 If you want to update manually, make sure you have disabled auto-updating:
 
@@ -99,7 +114,7 @@ If you want to update manually, make sure you have disabled auto-updating:
 Now the languages are updated manually.
 
 How to disable unwanted printing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+================================
 
 Whenever `vtrans` is initialized and ready to translate, it prints "Ready to translate". If you want to disable this:
 
@@ -112,7 +127,7 @@ Whenever `vtrans` is initialized and ready to translate, it prints "Ready to tra
 You don't need to do this every time. Once you have changed the value, it will make changes in the `config.txt` file.
 
 HTTP/2 support
---------------
+==============
 
 This library uses `httpx` for HTTP requests, so HTTP/2 is supported by default. You can check if HTTP/2 is enabled and working by accessing the `._response.http_version` attribute of the `Translated` or `Detected` object:
 
@@ -122,13 +137,13 @@ This library uses `httpx` for HTTP requests, so HTTP/2 is supported by default. 
     # 'HTTP/2'
 
 Basic Usage
------------
+==========
 
 If the source language is not given, Google Translate attempts to detect the source language.
 
 .. code-block:: python
 
-    from googletrans import Translator
+    from vtrans import Translator
 
     translator = Translator()
     translator.translate('안녕하세요.')
@@ -139,7 +154,7 @@ If the source language is not given, Google Translate attempts to detect the sou
     # <Translated src=la dest=en text=The truth is my light pronunciation=The truth is my light>
 
 Customize service URL
----------------------
+======================
 
 You can use a different Google Translate domain for translation. If multiple URLs are provided, it randomly chooses a domain.
 
@@ -153,7 +168,7 @@ You can use a different Google Translate domain for translation. If multiple URL
     ])
 
 Advanced Usage (Bulk)
----------------------
+=====================
 
 Arrays can be used to translate a batch of strings in a single method call and a single HTTP session. The same method shown above also works for arrays.
 
@@ -167,7 +182,7 @@ Arrays can be used to translate a batch of strings in a single method call and a
     # the lazy dog  ->  게으른 개
 
 Language detection
-------------------
+==================
 
 The `detect` method identifies the language used in a given sentence.
 
@@ -186,7 +201,7 @@ The `detect` method identifies the language used in a given sentence.
     # <Detected lang=eo confidence=0.10538048>
 
 Note on library usage
----------------------
+=====================
 
 DISCLAIMER: Yes, I am aware that most of the functions are similar to `googletrans` because I worked with the base of `googletrans`. However, `vtrans` can update its languages, allowing you to use more languages. This is an unofficial library that uses the web API of translate.google.com and is not associated with Google.
 
@@ -195,12 +210,21 @@ DISCLAIMER: Yes, I am aware that most of the functions are similar to `googletra
 - If you encounter HTTP 5xx errors or errors like #6, it is likely because Google has banned your client IP address.
 
 License
--------
+=======
 
-`vtrans` is licensed under the MIT License. The terms are as follows:
+Googletrans is licensed under the MIT License. The terms are as
+follows:
 
-.. code-block:: text
+::
+    Copyright 2023 S.Vigneswaran
 
-    Copyright 2023 S. Vigneswaran
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+.. |GitHub license| image:: https://img.shields.io/github/license/mashape/apistatus.svg
+   :target: http://opensource.org/licenses/MIT
+.. |PyPI version| image:: https://badge.fury.io/py/googletrans.svg
+   :target: https://pypi.org/project/vtrans/
